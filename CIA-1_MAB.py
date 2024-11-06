@@ -4,9 +4,9 @@ import random
 class EpsilonGreedyMAB:
     def __init__(self, n_arms, epsilon=0.1):
         self.n_arms = n_arms
-        self.epsilon = epsilon  # Exploration probability
-        self.counts = np.zeros(n_arms)  # Number of times each arm was chosen
-        self.values = np.zeros(n_arms)  # Estimated success rates for each arm
+        self.epsilon = epsilon 
+        self.counts = np.zeros(n_arms)  
+        self.values = np.zeros(n_arms)  
 
     def select_arm(self):
         if random.random() < self.epsilon:
@@ -26,9 +26,9 @@ class Environment:
     def get_reward(self, arm):
         return 1 if random.random() < self.probabilities[arm] else 0
 
-n_arms = 10          # Number of arms (recommendations)
-n_rounds = 1000      # Number of rounds for the simulation
-epsilon = 0.1        # Epsilon for exploration
+n_arms = 10          
+n_rounds = 1000     
+epsilon = 0.1 
 
 env = Environment(n_arms)
 mab_agent = EpsilonGreedyMAB(n_arms, epsilon)
